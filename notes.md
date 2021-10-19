@@ -37,5 +37,13 @@ Hoop Heroes: A stat tracking app for 2v2 pickups basketball games at the Power P
         self[:stat] / team.games.count 
       end
 
+       <ul>
+    <% team.players.each do |player| %>
+      <li><%= player.name %> (<%= players.position %>)</li><br>
+    <% end %>
+  </ul>
+
+
+
 
 

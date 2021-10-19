@@ -1,0 +1,10 @@
+<h1>Hello from the Players Index</h1>
+
+<ol>
+<% @players.each do |player| %>
+  <li><%= player.name %></li>
+  <p>[ <%= player.position %> ] - <%= player.team.name %></p>
+  <p>PPG: <%= player.points_per_game %></p>
+
+<% end %>
+</ol>
