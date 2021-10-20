@@ -37,11 +37,25 @@ Hoop Heroes: A stat tracking app for 2v2 pickups basketball games at the Power P
         self[:stat] / team.games.count 
       end
 
-       <ul>
-    <% team.players.each do |player| %>
-      <li><%= player.name %> (<%= players.position %>)</li><br>
-    <% end %>
-  </ul>
+[ To-Do... ]
+
+CORE:
+
+-Redirect to teams index after log in or sign up
+-Figure out sessions, for assigning user (Coach) with devise
+-Allow a new user to create a nickname when signing up
+-Render a login view to the root (home)
+-Bootstrap styling for navbar, and everything else
+-Form for new game
+-Add better validations for teams and players
+-Add validations for games
+-Figure out how to sort all teams by wins, all players by PPG
+
+STRETCH:
+-Add a dropdown to filter sort by assists or rebounds as well
+-Add a "Top Team" and "Top Player" display on the home page before signing in/up
+-Add a Scouting Report for players, works like comments. Other coaches can see / submit a scouting report for a player
+  
 
 
 

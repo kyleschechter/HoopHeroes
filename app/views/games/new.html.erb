@@ -1,0 +1,12 @@
+<h1>New Game</h1>
+
+<%= form_for @game do |f| %>
+  <label>Home Team:</label>
+  <%= f.collection_select :home_team_id, Team.all, :id, :name %><br>
+
+  <%= f.fields_for %>
+  <label>Away Team:</label>
+  <%= f.collection_select :away_team_id, Team.all, :id, :name %><br>
+
+  <%= f.submit "Submit Game" %>
+<% end %>

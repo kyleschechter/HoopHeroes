@@ -1,5 +1,3 @@
-<h1>Hello from the Games Index</h1>
-
 <ul>
 <% @games.each do |game| %>
   <li><%= game.home_team.name %> ( <%= game.score(game.home_team) %> ) vs. ( <%= game.score(game.away_team) %> ) <%= game.away_team.name  %></li>
