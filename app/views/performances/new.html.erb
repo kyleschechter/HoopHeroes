@@ -1,0 +1,14 @@
+ <%= form_for @performance do |f| %>
+ <%= f.fields_for @player1 do |ff| %>
+    <%= ff.hidden_field :player_id, value: current_user.team.players.first.id %>
+    <label><%= current_user.team.players.first.name %>:</label>
+    <%= ff.number_field :points %>
+  <% end %>
+  <br>
+  <%= f.fields_for @player2 do |ff| %>
+    <%= ff.hidden_field :player_id, value: current_user.team.players.second.id %>
+    <label><%= current_user.team.players.second.name %>:</label>
+    <%= ff.number_field :points %>
+  <% end %>
+  <br>
+  <br>

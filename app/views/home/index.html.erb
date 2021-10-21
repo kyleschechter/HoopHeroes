@@ -1,1 +1,19 @@
-<h1>Welcome to Hoop Heroes <%= current_user.email if current_user.present? %>!</h1>
+<% unless user_signed_in? %>
+  <h1>Welcome coach!</h1>
+<% else %>
+  <h1>MyTEAM</h1>
+  <% if current_user.team.blank? %>
+    <p>Welcome to Hoop Heroes! Build your 2v2 squad so you can log their games and keep track of your players' stats...</p>
+    <br>
+    <%= button_to "New Team +", new_team_path %>
+  <% else %>
+    <%= button_to "Record New Game", new_game_path, method: :get %>
+    <%= current_user.team.name %>
+    <br>
+    <ul>
+    <% current_user.team.players.each do |player| %>
+      <li>[ <%= player.position %> ] <%= player.name %></li>
+    <% end %>
+    <ul>
+  <% end %>
+<% end %>

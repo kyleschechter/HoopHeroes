@@ -1,12 +1,14 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  def current_coach
-    if current_user.present?
-      current_user
-    end
+  def current_team
+    current_user.team
   end
-  
+
+  def current_players
+    current_team.players
+  end
+
   private
 
     def configure_permitted_parameters

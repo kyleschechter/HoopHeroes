@@ -3,6 +3,7 @@ class Game < ApplicationRecord
   belongs_to :away_team, class_name: 'Team'
   has_many :performances
   has_many :players, through: :performances
+  accepts_nested_attributes_for :performances
 
   def score(team)
     player_performances = performances.filter { |performance| performance.player.team == team }
