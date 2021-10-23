@@ -2,7 +2,6 @@
 <% @players.each do |player| %>
   <li><%= player.name %> ( <%= player.per_game_stats(:points) %> PPG / <%= player.per_game_stats(:assists) %> APG / <%= player.per_game_stats(:rebounds) %> RPG )</li>
   <p>[ <%= player.position %> ] - <%= player.team.name %></p>
-  <p>Game MVP's: <%= player.mvps %></p>
   <br>
 <% end %>
 </ol>

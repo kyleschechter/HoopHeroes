@@ -1,0 +1,40 @@
+<h1><%= @game.home_team.name %> vs. <%= @game.away_team.name %>
+<%= form_tag("/games/#{@game.id}/performances") do %>
+  <%= fields_for "performances[]", @hp1_form do |ff| %>
+    <label><%= @home_player1.name %>:</label><br>
+    <%= ff.hidden_field :player_id, value: @home_player1.id %>
+    <%= ff.hidden_field :game_id, value: @game.id %>
+    <%= ff.number_field :points, placeholder: "Points" %><br>
+    <%= ff.number_field :assists, placeholder: "Assists"  %><br>
+    <%= ff.number_field :rebounds, placeholder: "Rebounds" %><br>
+  <% end %>
+  <br>
+  <%= fields_for "performances[]", @hp2_form do |ff| %>
+    <label><%= @home_player2.name %>:</label><br>
+    <%= ff.hidden_field :player_id, value: @home_player2.id %>
+    <%= ff.hidden_field :game_id, value: @game.id %>
+    <%= ff.number_field :points, placeholder: "Points" %><br>
+    <%= ff.number_field :assists, placeholder: "Assists"  %><br>
+    <%= ff.number_field :rebounds, placeholder: "Rebounds" %><br>
+  <% end %>
+  <br>
+  <%= fields_for "performances[]", @ap1_form do |ff| %>
+    <label><%= @away_player1.name %>:</label><br>
+    <%= ff.hidden_field :player_id, value: @away_player1.id %>
+    <%= ff.hidden_field :game_id, value: @game.id %>
+    <%= ff.number_field :points, placeholder: "Points"%><br>
+    <%= ff.number_field :assists, placeholder: "Assists" %><br>
+    <%= ff.number_field :rebounds, placeholder: "Rebounds" %><br>
+  <% end %>
+  <br>
+  <%= fields_for "performances[]", @ap2_form do |ff| %>
+    <label><%= @away_player2.name %>:</label><br>
+    <%= ff.hidden_field :player_id, value: @away_player2.id %>
+    <%= ff.hidden_field :game_id, value: @game.id %>
+    <%= ff.number_field :points, placeholder: "Points" %><br>
+    <%= ff.number_field :assists, placeholder: "Assists"  %><br>
+    <%= ff.number_field :rebounds, placeholder: "Rebounds" %><br>
+  <% end %>
+
+  <%= submit_tag "Finish Game" %>
+<% end %>

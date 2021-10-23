@@ -4,18 +4,30 @@ class GamesController < ApplicationController
     @games = Game.all
   end
 
+  def show
+    @game = Game.find(params[:id])
+    @home_player1 = @game.home_team.players.first
+    @hp1_form = @game.performances.build(player: @home_player1)
+
+    @home_player2 = @game.home_team.players.second
+    @hp2_form = @game.performances.build(player: @home_player2)
+
+    @away_player1 = @game.away_team.players.first
+    
+    @ap1_form = @game.performances.build(player: @away_player1)
+
+    @away_player2 = @game.away_team.players.second
+    @ap2_form = @game.performances.build(player: @away_player2)
+  end
+
   def new
     @game = Game.new
-    @player1 = @game.performances.build
-    @player2 = @game.performances.build
-    @player3 = @game.performances.build
-    @player4 = @game.performances.build
   end
 
   def create
     @game = Game.new(game_params)
     if @game.save
-      redirect_to root_path
+      redirect_to game_path(@game)
     else
       render :new
     end
