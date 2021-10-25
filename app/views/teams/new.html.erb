@@ -1,27 +1,29 @@
-<h1>New Team submission page</h1>
+<div class="d-flex justify-content-center">
+  <h1>New Team submission page</h1><br>
 
-<%= form_for @team do |f| %>
-  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= form_for @team do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %><br>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
 
-  <%= f.label :slogan %>
-  <%= f.text_area :slogan %><br>
+    <%= f.label :slogan %>
+    <%= f.text_area :slogan %><br>
 
-  <%= f.label "Team Picture:" %>
-  <%= f.text_field :image_url %><br>
+    <%= f.label "Team Picture:" %>
+    <%= f.text_field :image_url %><br>
 
-  <%= f.label "Players:" %>
-  <%= f.fields_for :players do |ff| %>
-    <%= ff.label :name %>
-    <%= ff.text_field :name %> 
+    <%= f.label "Players:" %>
+    <%= f.fields_for :players do |ff| %>
+      <%= ff.label :name %>
+      <%= ff.text_field :name %> 
+      <br>
+      <%= ff.label :position %>
+      <%= ff.select :position, ["PG", "SG", "SF", "PF", "C"] %>
+    <% end %>
     <br>
-    <%= ff.label :position %>
-    <%= ff.select :position, ["PG", "SG", "SF", "PF", "C"] %>
+
+    <%= f.submit "Finish" %>
+
   <% end %>
-  <br>
-
-  <%= f.submit "Finish" %>
-
-<% end %>
+</div>

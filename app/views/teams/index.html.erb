@@ -1,10 +1,25 @@
-<ol>
-<% @teams.each do |team| %>
-  <img src=<%= team.image_url %> height="50px">
-  <li><%= team.name %> <%= team.record %></li>
-  <p>"<%= team.slogan %>"</p><br>
-  <% team.players.each do |player| %>
-    <p>[ <%= player.position %> ] - <%= player.name %></p>
-  <% end %>
-<% end %>
-</ol>
+<table class="table table-striped fs-4">
+  <thead>
+   <tr>
+      <th scope="col">Team</th>
+      <th scope="col">Record</th>
+      <th scope="col">Players</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @teams.filter { |team| team.players.any? }.each do |team| %>
+    <tr>
+      <td>
+        <img style="height: 4rem;" src=<%= team.image_url %>>
+        <strong class=<%= "text-primary" if team == current_user.team %>><%= team.name %></strong>
+        <p class= "fs-5">"<%= team.slogan %>"</p>
+      </td>
+      <td><%= team.record %></td>
+      <% team.players.each do |player| %>
+        <td>[ <%= player.position %> ] - <%= player.name %></td>
+      <% end %>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

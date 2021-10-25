@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-center m-5">
   <h1><%= @game.home_team.name %> vs. <%= @game.away_team.name %>
 </div>
-<div>
+<div class="d-flex justify-content-center">
   <%= form_tag("/games/#{@game.id}/performances") do %>
     <%= fields_for "performances[]", @hp1_form do |ff| %>
       <label><%= @home_player1.name %>:</label><br>

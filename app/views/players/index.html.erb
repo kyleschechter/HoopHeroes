@@ -1,7 +1,23 @@
-<ol>
-<% @players.each do |player| %>
-  <li><%= player.name %> ( <%= player.per_game_stats(:points) %> PPG / <%= player.per_game_stats(:assists) %> APG / <%= player.per_game_stats(:rebounds) %> RPG )</li>
-  <p>[ <%= player.position %> ] - <%= player.team.name %></p>
-  <br>
-<% end %>
-</ol>
+<table class="table table-striped fs-4">
+  <thead>
+   <tr>
+      <th scope="col">Player</th>
+      <th scope="col">PPG</th>
+      <th scope="col">APG</th>
+      <th scope="col">RPG</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @players.each do |player| %>
+    <tr>
+      <td>
+        <img style="height: 4rem;" src="https://th.bing.com/th/id/R.ca11ff5110bfb2b316716f065a0236ac?rik=JCF6rzE8UvBAVg&riu=http%3a%2f%2fsynergysportsfacility.com%2fwp-content%2fuploads%2f2015%2f02%2fblank-profile.jpg&ehk=eech4HE2vO6ItG1ANhJVHCvGVTwcb4kASKRneNkYu5k%3d&risl=&pid=ImgRaw&r=0"> 
+        <strong class=<%= "text-primary" if player.team == current_user.team %>><%= player.name %></strong> - [ <%= player.position %> ] - <%= player.team.name %>
+      </td>
+      <td><%= player.per_game_stats(:points) %></td>
+      <td><%= player.per_game_stats(:assists) %></td>
+      <td><%= player.per_game_stats(:rebounds) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
