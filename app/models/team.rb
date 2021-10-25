@@ -5,6 +5,8 @@ class Team < ApplicationRecord
   has_many :performances, through: :players
   accepts_nested_attributes_for :players
   validates :name, presence: true, uniqueness: true
+  validates :slogan, presence: true
+  validates :image_url, presence: true
 
   def wins
     Game.all.filter { |game| game.winner == self}.count
