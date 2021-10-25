@@ -1,21 +1,31 @@
 <% unless user_signed_in? %>
   <h1>Welcome coach!</h1>
 <% else %>
-  <h1>MyTEAM</h1>
-  <% if current_user.team.blank? %>
-    <p>Welcome to Hoop Heroes! Build your 2v2 squad so you can log their games and keep track of your players' stats...</p>
-    <br>
-    <%= button_to "New Team +", new_team_path, method: :get %>
-  <% else %>
-    <%= button_to "Record New Game", new_game_path, method: :get %>
-    <%= current_user.team.name %>
-    <br>
-    <ul>
-    <% current_user.team.players.each do |player| %>
-      <li>[ <%= player.position %> ] <%= player.name %></li>
-    <% end %>
-    </ul>
-    <div class="d-flex flex-wrap justify-content-around">
+  <div class="container-fluid border border-3 bg-primary">
+    <div class="row mx-5 my-4 d-flex bd-highlight align-items-center">
+      <% if current_user.team.blank? %>
+        <div class="col bd-highlight flex-fill">
+          <p class="fs-2 text-light">Welcome to Hoop Heroes! Build your 2v2 squad so you can log their games and keep track of your players' stats...</p>
+        </div>
+        <div class="col bd-highlight">
+          <%= button_to "New Team +", new_team_path, method: :get, class: 'btn btn-light btn-outline-success' %>
+        </div>
+      <% else %>
+        <div class="col">
+          <h1><%= current_user.team.name %></h1>
+        </div>
+        <% current_user.team.players.each do |player| %>
+          <p class="col fs-2"><span class="badge bg-white text-black"><%= player.position %></span> <%= player.name %></p>
+        <% end %>
+        <div class="col">
+          <%= button_to "Record New Game", new_game_path, method: :get, class: 'btn btn-light btn-outline-success' %>
+        </div>
+    </div>
+  </div>
+  <div class="d-flex m-3 justify-content-center">
+    <h1>Recent Matchups:</h1>
+  </div>
+    <div class="d-flex flex-wrap justify-content-around my-5">
     <% Game.where(home_team_id: current_user.team.id).or(Game.where(away_team_id: current_user.team.id)).each do |game| %>
       <div class="card fs-3 d-flex align-items-center shadow p-3 mb-5 bg-body rounded" style="width: 25rem;">
           <div class="card-body">

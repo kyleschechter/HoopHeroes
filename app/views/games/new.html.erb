@@ -1,12 +1,25 @@
-<h1>New Game</h1>
-
-<%= form_for @game do |f| %>
-  <%= f.hidden_field :home_team_id, value: current_user.team.id %>
-  <label>Home Team: <%= current_user.team.name %></label><br>
- 
-  <label>Away Team:</label>
-  <%= f.collection_select :away_team_id, Team.where.not(id: current_user.team.id), :id, :name %><br>
-  <br>
-
-  <%= f.submit "Start" %>
-<% end %>
+<div class="d-flex justify-content-center m-5">
+  <h1>New Game</h1>
+</div>
+<div class="d-flex justify-content-center fs-3">
+  <div class="d-flex w-25 justify-content-center border rounded p-3">
+    <%= form_for @game do |f| %>
+      <div class="row">
+        <div class="col">
+          <%= f.hidden_field :home_team_id, value: current_user.team.id %>
+          <label class="badge bg-primary mb-2">Home Team</label><br>
+          <%= current_user.team.name %><br>
+          <br>
+        </div>
+        <div class="col">
+          <label class="badge bg-black mb-2">Away Team</label><br>
+          <%= f.collection_select :away_team_id, Team.where.not(id: current_user.team.id), :id, :name %><br>
+          <br>
+        </div>
+      </div>
+      <div class="row">
+       <%= f.submit "Start" %>
+      </div>
+    <% end %>
+  </div>
+</div>

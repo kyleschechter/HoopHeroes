@@ -12,14 +12,19 @@
   </head>
 
   <body>
+   <% if notice %>
+      <div class="notice alert-primary alert-dismissable p-2">
+        <%= notice %>
+      </div>
+    <% end %>
+    <% if alert %>
+      <p class="alert-primary"><%= alert %></p>
+    <% end %>
     <% if user_signed_in? %>
       <%= render 'shared/user_navbar' %>
     <% else %>
       <%= render 'shared/home_navbar' %>
     <% end %>
-
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>
