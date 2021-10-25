@@ -6,6 +6,8 @@ Hoop Heroes is a dynamic stat tracking application for a 2v2 style pickup basket
 
 Hoop Heroes allows coaches or team managers to coordinate and track all of their games, as well as their players' indvidual or season long stats. Whether you are a dedicated hooper looking to pin point your strengths and weaknesses, or just a novice trying to have some fun while tracking your success; Hoop Heroes gives you the power to do so.
 
+#
+
 ## Installation:
 
 In order to begin competing against your friends in Hoop Heroes, you will need to fork and clone this repository. Once you do that, `cd` into the project folder and set up the environment and database:
@@ -18,6 +20,8 @@ rails db:migrate db:seed
 rails s
 ```
 Now you can go to your [localhost:3000](http://localhost:3000) and begin.
+
+#
 
 ## How to use the app:
 
@@ -53,6 +57,8 @@ Now you can go to your [localhost:3000](http://localhost:3000) and begin.
   * Top squads in the park 
   * Most dominant hoopers in the park
 * Most importantly... Have fun!
+
+#
 
 ## Credits:
 Special thanks to Sebastian and Gillian for always believing in me and pushing me to think outside of the box. As you both always say...
