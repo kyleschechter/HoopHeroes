@@ -56,3 +56,10 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
+
+gem 'rspec-rails'
+
+group :test do
+  gem 'shoulda-matchers', '~> 5.0'
+end
+

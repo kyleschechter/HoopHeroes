@@ -7,6 +7,8 @@ class Team < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :slogan, presence: true
   validates :image_url, presence: true
+  scope :except_team_of, ->(user) { where.not(id: user.team.id )}
+  ##Try more scope methods ^^^
 
   def wins
     Game.all.filter { |game| game.winner == self}.count

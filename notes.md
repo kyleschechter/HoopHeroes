@@ -56,7 +56,14 @@ STRETCH:
 -Add a "Top Team" and "Top Player" display on the home page before signing in/up
 -Add a Scouting Report for players, works like comments. Other coaches can see / submit a scouting report for a player
   
-
+REVIEW:
+-Understand the issue/objective
+-Wire frame / sketch out user stories / flow of application
+-Models first
+-Highest up first (User)
+-Write tests first
+-Happy path = All data and code is where it needs to be
+-Frequent commits, detailed/meaningful commit messages. What is the inent of this change?
 
 
 

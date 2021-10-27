@@ -13,11 +13,11 @@ class GamesController < ApplicationController
     @hp2_form = @game.performances.build(player: @home_player2)
 
     @away_player1 = @game.away_team.players.first
-    
     @ap1_form = @game.performances.build(player: @away_player1)
 
     @away_player2 = @game.away_team.players.second
     @ap2_form = @game.performances.build(player: @away_player2)
+    ## Better variable names
   end
 
   def new

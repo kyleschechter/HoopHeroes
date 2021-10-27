@@ -6,4 +6,11 @@ class User < ApplicationRecord
   attr_accessor :login
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  ## Add username column to user table
+
+  # <div class="field">
+  #   <%= f.label :name %><br />
+  #   <%= f.text_field :name, autofocus: true %>
+  # </div>
 end

@@ -13,7 +13,7 @@
         </div>
         <div class="col">
           <label class="badge bg-black mb-2">Away Team</label><br>
-          <%= f.collection_select :away_team_id, Team.where.not(id: current_user.team.id), :id, :name %><br>
+          <%= f.collection_select :away_team_id, Team.except_team_of(current_user), :id, :name %><br>
           <br>
         </div>
       </div>
